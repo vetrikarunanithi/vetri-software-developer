@@ -614,11 +614,14 @@ footer p { font-size: 0.8rem; color: var(--text3); }
   .sidebar-contact a span { display: none; }
   .sidebar-contact a img { width: 24px; height: 24px; }
 
-  .tl-item { grid-template-columns: 30px 1fr; gap: 10px; }
-  .tl-date { display: block; order: -1; margin-bottom: 8px; text-align: left; padding: 0; }
-  .tl-date span { background: none; border: none; padding: 0; color: var(--blue2); font-size: 0.75rem; font-weight: 600; }
-  .tl-line { padding-top: 0; }
-  .tl-card { padding: 16px; }
+  .tl-item { display: flex; flex-direction: column; gap: 0; padding-left: 20px; border-left: 2px solid var(--blue); position: relative; margin-bottom: 30px; }
+  .tl-line { display: none; }
+  .tl-dot { position: absolute; left: -8px; top: 0; width: 14px; height: 14px; }
+  .tl-date { text-align: left; padding: 0; margin-bottom: 10px; }
+  .tl-date span { background: var(--blue-glow); border: 1px solid var(--blue); color: var(--blue2); font-size: 0.72rem; padding: 4px 12px; }
+  .tl-card { padding: 20px; margin-bottom: 0; width: 100%; }
+  .tl-role { font-size: 0.95rem; }
+  .tl-company { font-size: 0.8rem; }
 
   .edu-content { padding: 0 15px 20px 58px; }
   .edu-header { gap: 12px; }
