@@ -1,4 +1,4 @@
-const BASE = import.meta.env.BASE_URL || '/';
+const BASE = window.location.hostname.includes('github.io') ? '/vetri-software-developer/' : '/';
 
 async function loadSections() {
   const sections = [
