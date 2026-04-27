@@ -1,6 +1,7 @@
 async function loadSections() {
   const isGH = window.location.hostname.includes('github.io');
-  const basePath = isGH ? '/vetri-software-developer/' : '/';
+  const isVercel = window.location.hostname.includes('vercel.app');
+  const basePath = (isGH && !isVercel) ? '/vetri-software-developer/' : '/';
 
   const sections = [
     { id: 'sidebar-hook', file: 'sections/sidebar.html' },
