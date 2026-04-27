@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL || '/';
+
 async function loadSections() {
   const sections = [
     { id: 'sidebar-hook', file: 'sections/sidebar.html' },
@@ -16,7 +18,8 @@ async function loadSections() {
 
   for (const section of sections) {
     try {
-      const response = await fetch(section.file);
+      const filePath = (BASE + section.file).replace(/\/+/g, '/');
+      const response = await fetch(filePath);
       if (!response.ok) throw new Error(`Failed to load ${section.file}`);
       const html = await response.text();
       const hook = document.getElementById(section.id);
