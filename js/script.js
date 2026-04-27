@@ -1,6 +1,10 @@
-const BASE = window.location.hostname.includes('github.io') ? '/vetri-software-developer/' : '/';
-
 async function loadSections() {
+  // Ensure we have a trailing slash for relative paths to work on GH Pages
+  if (window.location.hostname.includes('github.io') && !window.location.pathname.endsWith('/')) {
+    window.location.replace(window.location.href + '/');
+    return;
+  }
+
   const sections = [
     { id: 'sidebar-hook', file: 'sections/sidebar.html' },
     { id: 'mobile-menu-hook', file: 'sections/mobile-menu.html' },
@@ -18,8 +22,7 @@ async function loadSections() {
 
   for (const section of sections) {
     try {
-      const filePath = (BASE + section.file).replace(/\/+/g, '/');
-      const response = await fetch(filePath);
+      const response = await fetch(section.file);
       if (!response.ok) throw new Error(`Failed to load ${section.file}`);
       const html = await response.text();
       const hook = document.getElementById(section.id);
